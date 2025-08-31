@@ -1,4 +1,5 @@
 import { Box, Grid, GridItem, Show, useMediaQuery } from "@chakra-ui/react";
+import NavBar from "./components/ui/NavBar";
 
 function App() {
   const [isLargeScreen] = useMediaQuery(["(min-width: 1024px)"]);
@@ -11,8 +12,8 @@ function App() {
           lg: `"nav nav" "aside main"`, //1024px
         }}
       >
-        <GridItem area="nav" bg="coral">
-          Nav
+        <GridItem area="nav">
+          <NavBar />
         </GridItem>
         <Show when={isLargeScreen}>
           <Box>
