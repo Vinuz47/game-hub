@@ -1,5 +1,6 @@
 import { Box, Grid, GridItem, Show, useMediaQuery } from "@chakra-ui/react";
 import NavBar from "./components/ui/NavBar";
+import ColorModeToggle from "./components/ui/ColorModeSwitch";
 
 function App() {
   const [isLargeScreen] = useMediaQuery(["(min-width: 1024px)"]);
@@ -14,16 +15,17 @@ function App() {
       >
         <GridItem area="nav">
           <NavBar />
+          
         </GridItem>
         <Show when={isLargeScreen}>
           <Box>
-            <GridItem area="aside" bg="gold">
+            <GridItem area="aside">
               Aside
             </GridItem>
           </Box>
         </Show>
 
-        <GridItem area="main" bg="dodgerblue">
+        <GridItem area="main" >
           Main
         </GridItem>
       </Grid>
