@@ -7,7 +7,6 @@ const ColorModeToggle = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    
       <IconButton
         aria-label="Toggle color mode"
         onClick={toggleColorMode}
@@ -17,7 +16,6 @@ const ColorModeToggle = () => {
         <Icon>{colorMode === "light" ? <MdDarkMode /> : <MdLightMode />}</Icon>
         <Text>{colorMode === "light" ? "Dark Mode" : "Light Mode"}</Text>
       </IconButton>
-   
   );
 };
 
