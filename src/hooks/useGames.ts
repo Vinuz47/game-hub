@@ -15,7 +15,7 @@ const useGames = () => {
       const [error, setError] = useState("");
     
     useEffect(() => {
-        const controller = new AbortController();  
+        const controller = new AbortController();  //handle cancellation
 
 
         apiClient
@@ -25,6 +25,7 @@ const useGames = () => {
                 if (err instanceof CanceledError) return;
                 setError(err.message)
             });
+        return () => controller.abort(); //cleanup function to abort the request
       }, []);
     
     return {games, error};
