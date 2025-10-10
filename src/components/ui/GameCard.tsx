@@ -14,7 +14,7 @@ const GameCard = ({ game }: Props) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Card.Root borderRadius={10} overflow="hidden">
+    <Card.Root width="300px" borderRadius={10} overflow="hidden">
       <Image src={getCroppedImageUrl(game.background_image)} />
       <Card.Body
         backgroundColor={colorMode === "light" ? "black.100" : "black.900"}
