@@ -2,6 +2,7 @@ import { Box, Grid, GridItem, Show, useMediaQuery } from "@chakra-ui/react";
 import NavBar from "./components/ui/NavBar";
 import ColorModeToggle from "./components/ui/ColorModeSwitch";
 import GameGrid from "./components/ui/GameGrid";
+import GenreList from "./components/ui/GenreList";
 
 function App() {
   const [isLargeScreen] = useMediaQuery(["(min-width: 1024px)"]);
@@ -21,7 +22,7 @@ function App() {
         <Show when={isLargeScreen}>
           <Box>
             <GridItem area="aside">
-              Aside
+              <GenreList />
             </GridItem>
           </Box>
         </Show>
