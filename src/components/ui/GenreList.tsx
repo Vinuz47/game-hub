@@ -10,7 +10,7 @@ const GenreList = () => {
   if (error) return null;
 
   return (
-    <List.Root padding={5}>
+    <List.Root padding={5} listStyleType="none" paddingLeft={0}>
       {data.map((genre) => (
         <List.Item key={genre.id} paddingY="10px">
           <HStack>
