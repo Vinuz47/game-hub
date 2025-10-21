@@ -4,6 +4,7 @@ import React from "react";
 import { useColorMode } from "./color-mode";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
+import getCroppedImageUrl from "@/services/image-url";
 
 interface Props {
   game: Game;
@@ -14,7 +15,7 @@ const GameCard = ({ game }: Props) => {
 
   return (
     <Card.Root borderRadius={10} overflow="hidden">
-      <Image src={game.background_image} />
+      <Image src={getCroppedImageUrl(game.background_image)} />
       <Card.Body
         backgroundColor={colorMode === "light" ? "black.100" : "black.900"}
       >

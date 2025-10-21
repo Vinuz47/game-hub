@@ -2,6 +2,7 @@ import { Box, Grid, GridItem, Show, useMediaQuery } from "@chakra-ui/react";
 import NavBar from "./components/ui/NavBar";
 import ColorModeToggle from "./components/ui/ColorModeSwitch";
 import GameGrid from "./components/ui/GameGrid";
+import GenreList from "./components/ui/GenreList";
 
 function App() {
   const [isLargeScreen] = useMediaQuery(["(min-width: 1024px)"]);
@@ -13,6 +14,10 @@ function App() {
           base: `"nav" "main"`,
           lg: `"nav nav" "aside main"`, //1024px
         }}
+        templateColumns={{
+          base: '1fr',
+          lg: '200px 1fr'
+        }}
       >
         <GridItem area="nav">
           <NavBar />
@@ -20,8 +25,8 @@ function App() {
         </GridItem>
         <Show when={isLargeScreen}>
           <Box>
-            <GridItem area="aside">
-              Aside
+            <GridItem area="aside" paddingX={5}>
+              <GenreList />
             </GridItem>
           </Box>
         </Show>
