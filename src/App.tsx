@@ -5,6 +5,7 @@ import GameGrid from "./components/ui/GameGrid";
 import GenreList from "./components/ui/GenreList";
 import { useState } from "react";
 import type { Genre } from "./hooks/useGenre";
+import PlatformSelector from "./components/ui/PlatformSelector";
 
 function App() {
   const [isLargeScreen] = useMediaQuery(["(min-width: 1024px)"]);
@@ -36,6 +37,7 @@ function App() {
         </Show>
 
         <GridItem area="main">
+          <PlatformSelector />
           <GameGrid selectedGenre={selectedGenre} />
         </GridItem>
       </Grid>
