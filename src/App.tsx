@@ -1,15 +1,19 @@
 import { Box, Grid, GridItem, Show, useMediaQuery } from "@chakra-ui/react";
 import NavBar from "./components/ui/NavBar";
-import ColorModeToggle from "./components/ui/ColorModeSwitch";
 import GameGrid from "./components/ui/GameGrid";
 import GenreList from "./components/ui/GenreList";
 import { useState } from "react";
 import type { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/ui/PlatformSelector";
+import type { Platform } from "./hooks/useGames";
 
 function App() {
   const [isLargeScreen] = useMediaQuery(["(min-width: 1024px)"]);
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
+
   return (
     <>
       <Grid
@@ -37,8 +41,11 @@ function App() {
         </Show>
 
         <GridItem area="main">
-          <PlatformSelector />
-          <GameGrid selectedGenre={selectedGenre} />
+          <PlatformSelector
+            selectedPlatform={selectedPlatform}
+            onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+          />
+          <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} />
         </GridItem>
       </Grid>
     </>
