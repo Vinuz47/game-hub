@@ -3,10 +3,12 @@ import NavBar from "./components/ui/NavBar";
 import ColorModeToggle from "./components/ui/ColorModeSwitch";
 import GameGrid from "./components/ui/GameGrid";
 import GenreList from "./components/ui/GenreList";
+import { useState } from "react";
+import type { Genre } from "./hooks/useGenre";
 
 function App() {
   const [isLargeScreen] = useMediaQuery(["(min-width: 1024px)"]);
-
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   return (
     <>
       <Grid
@@ -15,24 +17,23 @@ function App() {
           lg: `"nav nav" "aside main"`, //1024px
         }}
         templateColumns={{
-          base: '1fr',
-          lg: '200px 1fr'
+          base: "1fr",
+          lg: "200px 1fr",
         }}
       >
         <GridItem area="nav">
           <NavBar />
-          
         </GridItem>
         <Show when={isLargeScreen}>
           <Box>
             <GridItem area="aside" paddingX={5}>
-              <GenreList />
+              <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
             </GridItem>
           </Box>
         </Show>
 
-        <GridItem area="main" >
-          <GameGrid />
+        <GridItem area="main">
+          <GameGrid selectedGenre={selectedGenre} />
         </GridItem>
       </Grid>
     </>
